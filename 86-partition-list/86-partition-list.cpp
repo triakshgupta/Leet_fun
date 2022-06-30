@@ -35,10 +35,11 @@ public:
                 }
             }
         }
+        if(curr==NULL){
+            return head;
+        }
         while(!q.empty()){
-            if(curr!=NULL){
-                curr->next=q.front();
-            }
+            curr->next=q.front();
             curr=q.front();
             q.pop();
         }
