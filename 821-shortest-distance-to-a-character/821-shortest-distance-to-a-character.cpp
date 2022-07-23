@@ -13,10 +13,10 @@ public:
                 ans.push_back(abs(i-t[0]));
             }
             else{
-                if(t.size()>temp+1 && abs(i-t[temp])<abs(i-t[temp+1])){
-                    ans.push_back(abs(i-t[temp]));
-                }
-                else if(t.size()>temp+1 && abs(i-t[temp])>=abs(i-t[temp+1])){
+                // if(t.size()>temp+1 && abs(i-t[temp])<abs(i-t[temp+1])){
+                //     ans.push_back(abs(i-t[temp]));
+                // }
+                if(t.size()>temp+1 && abs(i-t[temp])>=abs(i-t[temp+1])){
                     temp++;
                     ans.push_back(abs(i-t[temp]));
                 }
