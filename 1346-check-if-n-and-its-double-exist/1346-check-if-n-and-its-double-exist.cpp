@@ -1,25 +1,25 @@
 class Solution {
 public:
-    bool checkIfExist(vector<int>& arr) {
-       multiset<int> s;
-        int count=0;
-        for(int i=arr.size()-1;i>=0;i--){
-            if(arr[i]==0){
-                count++;
-            }
-            s.insert(arr[i]);
-        }
-        for(auto i:s){
-            if(s.count((i)*2)>0 && (count==0 || count>1)){
+    bool search(vector<int> a,int s,int e,int t){
+        if(s<=e){
+            int mid=e+(s-e)/2;
+            if(a[mid]==2*a[t] && mid!=t){
                 return true;
             }
-            else if(s.count((i)*2)>0 && count==1){
-                if(i==0){
-                    continue;
-                }
-                else{
-                    return true;
-                }
+            else if(a[mid]<2*a[t] || (mid==t && a[mid]==2*a[t])){
+                return search(a,mid+1,e,t);
+            }
+            else{
+                return search(a,s,mid-1,t);
+            }
+        }
+        return false;
+    }
+    bool checkIfExist(vector<int>& arr) {
+        sort(arr.begin(),arr.end());
+        for(int i=0;i<arr.size();i++){
+            if(search(arr,0,arr.size()-1,i)){
+                return true;
             }
         }
         return false;
