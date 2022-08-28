@@ -22,7 +22,7 @@ public:
                 z++;
             }
         }
-        for(int i=0;i<row;i++){
+        for(int i=1;i<row;i++){
             int j=0,k=i;
             vector<int> temp;
             while(j<col && k<row){
