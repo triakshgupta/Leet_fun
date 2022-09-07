@@ -11,30 +11,9 @@
  */
 class Solution {
 public:
-    // void solve(string& s,TreeNode* x){
-    //     if(x->left==NULL && x->right==NULL){
-    //         s+=to_string(x->val);
-    //         return;
-    //     }
-    //     s+=to_string(x->val);
-    //     s.push_back('(');
-    //     if(x->left){
-    //         solve(s,x->left);
-    //         s.push_back(')');
-    //     }
-    //     else{
-    //         s.push_back(')');
-    //     }
-    //     if(x->right){
-    //         s.push_back('(');
-    //         solve(s,x->right);
-    //         s.push_back(')');
-    //     }
-    // }
     string tree2str(TreeNode* root) {
-        // string s;
-        // solve(s,root);
-        // return s;
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         if(!root) return "";
         string ans;
         ans += to_string(root->val);
