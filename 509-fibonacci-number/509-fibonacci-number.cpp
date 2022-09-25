@@ -1,16 +1,12 @@
 class Solution {
 public:
+    int solve(int x){
+        if(x<=1){
+            return x;
+        }
+        return solve(x-1)+solve(x-2);
+    }
     int fib(int n) {
-        if(n==0){
-            return 0;
-        }
-        int prev=1;
-        int prevprev=0;
-        for(int i=2;i<=n;i++){
-            int temp=prev+prevprev;
-            prevprev=prev;
-            prev=temp;
-        }
-        return prev;
+        return solve(n);
     }
 };
