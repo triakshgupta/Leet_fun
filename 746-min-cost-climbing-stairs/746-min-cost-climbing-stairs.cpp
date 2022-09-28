@@ -11,15 +11,36 @@ public:
     //     int two=cost[i]+sumcost(i-2,cost,dp);
     //     return dp[i]=min(one,two);
     // }
+    // int minCostClimbingStairs(vector<int>& cost) {
+    //     vector<int> dp(cost.size(),-1);
+    //     return min(dp[cost.size()-1],dp[cost.size()-2]);
+    // }
+    
+    
+    // Tabulation
+    // int minCostClimbingStairs(vector<int>& cost) {
+    //     vector<int> dp(cost.size(),-1);
+    //     dp[0]=cost[0];
+    //     dp[1]=cost[1];
+    //     for(int i=2;i<cost.size();i++){
+    //         int one=cost[i]+dp[i-1];
+    //         int two=cost[i]+dp[i-2];
+    //         dp[i]=min(one,two);
+    //     }
+    //     return min(dp[cost.size()-1],dp[cost.size()-2]);
+    // }
+    
+    
+    //  Space Optimized
     int minCostClimbingStairs(vector<int>& cost) {
-        vector<int> dp(cost.size(),-1);
-        dp[0]=cost[0];
-        dp[1]=cost[1];
+        int prevp=cost[0];
+        int prev=cost[1];
+        int cur;
         for(int i=2;i<cost.size();i++){
-            int one=cost[i]+dp[i-1];
-            int two=cost[i]+dp[i-2];
-            dp[i]=min(one,two);
+            cur=min(cost[i]+prev,cost[i]+prevp);
+            prevp=prev;
+            prev=cur;
         }
-        return min(dp[cost.size()-1],dp[cost.size()-2]);
+        return min(prev,prevp);
     }
 };
