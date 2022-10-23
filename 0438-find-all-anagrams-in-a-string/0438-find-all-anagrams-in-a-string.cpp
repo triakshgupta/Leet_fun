@@ -15,9 +15,9 @@ public:
                 if(m[s[j]]==0){
                     count--;
                 }
-                if(m[s[j]]==-1){
-                    count++;
-                }
+                // if(m[s[j]]==-1){
+                //     count++;
+                // }
             }
             if(j-i+1<k){
                 j++;
@@ -31,9 +31,9 @@ public:
                     if(m[s[i]]==1){
                         count++;
                     }
-                    if(m[s[i]]==0){
-                        count--;
-                    }
+                    // if(m[s[i]]==0){
+                    //     count--;
+                    // }
                 }
                 i++;
                 j++;
