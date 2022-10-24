@@ -8,7 +8,7 @@ public:
             if(sum<target) j++;
             else{
                 ans=min(ans,j-i+1);
-                while(sum>target){
+                while(sum>target && i<j){
                     sum-=nums[i];
                     i++;
                     if(sum>=target){
