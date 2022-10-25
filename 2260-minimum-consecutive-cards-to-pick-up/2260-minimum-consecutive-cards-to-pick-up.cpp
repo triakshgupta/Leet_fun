@@ -19,6 +19,7 @@ public:
                 s.insert(cards[j]);
                 j++;
             }
+            if(ans==2) return ans;
         }
         if(ans==INT_MAX) return -1;
         return ans;
