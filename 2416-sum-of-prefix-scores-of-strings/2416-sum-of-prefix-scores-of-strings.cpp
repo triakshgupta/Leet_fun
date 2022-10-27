@@ -1,6 +1,5 @@
 struct Node{
     Node* a[26];
-    bool end=false;
     int pre=0;
 };
 class Solution {
@@ -21,7 +20,6 @@ public:
                     temp->pre++;
                 }
             }
-            temp->end=true;
         }
         vector<int> ans;
         for(int i=0;i<words.size();i++){
