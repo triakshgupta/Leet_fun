@@ -55,9 +55,19 @@ int main() {
 
 
 // Function to search a node in BST.
-
+void flr(Node* x,int i,int& ans){
+    if(x==NULL) return;
+    if(x->data<=i){
+        ans=x->data;
+        flr(x->right,i,ans);
+    }
+    else if(x->data>i) flr(x->left,i,ans);
+}
 int floor(Node* root, int x) {
     // Code here
+    int ans=-1;
+    flr(root,x,ans);
+    return ans;
     int floor=-1;
     while(root){
         if(root->data==x) return x;  
