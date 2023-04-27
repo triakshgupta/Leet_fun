@@ -15,6 +15,16 @@ struct Job
 
 // } Driver Code Ends
 /*
+
+struct Job 
+{ 
+    int id;	 // Job Id 
+    int dead; // Deadline of job 
+    int profit; // Profit if job is over before or on deadline 
+};
+*/
+
+/*
 struct Job 
 { 
     int id;	 // Job Id 
