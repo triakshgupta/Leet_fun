@@ -13,8 +13,27 @@ class Solution {
         // }
         // return a;
         
-        int a=sqrt(N-1);
-        return a;
+        
+        // int a=sqrt(N-1);
+        // return a;
+        
+        long long ans;
+        long long s=0;
+        long long e=N-1;
+        long long mid=e+(s-e)/2;
+        while(s<=e){
+            mid=e+(s-e)/2;
+            if(mid*mid==(long long)N-1){
+                ans=mid;
+                break;
+            }
+            else if(mid*mid<N-1){
+                s=mid+1;
+                ans=mid;
+            }
+            else e=mid-1;
+        }
+        return ans;
     }
 };
 
