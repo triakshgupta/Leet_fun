@@ -10,22 +10,21 @@ class Solution
     int spanningTree(int V, vector<vector<int>> adj[])
     {
         // code here
-        vector<int> vis(V,0);
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
-        for(int i=0;i<adj[0].size();i++){
-            pq.push({adj[0][i][1],adj[0][i][0]});
-        }
-        vis[0]=1;
+        vector<int> vis(V,0);
+        pq.push({0,0});
         int ans=0;
         while(!pq.empty()){
-            int wt=pq.top().first;
-            int n=pq.top().second;
+            int x=pq.top().second;
+            int w=pq.top().first;
             pq.pop();
-            if(vis[n]==0){
-                ans+=wt;
-                vis[n]=1;
-                for(int i=0;i<adj[n].size();i++){
-                    if(vis[adj[n][i][0]]==0) pq.push({adj[n][i][1],adj[n][i][0]});
+            if(vis[x]==0){
+                ans+=w;
+                vis[x]=1;
+                for(int i=0;i<adj[x].size();i++){
+                    if(vis[adj[x][i][0]]==0){
+                        pq.push({adj[x][i][1],adj[x][i][0]});
+                    }
                 }
             }
         }
