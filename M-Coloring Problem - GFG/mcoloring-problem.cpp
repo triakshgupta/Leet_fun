@@ -29,7 +29,12 @@ public:
     bool graphColoring(bool graph[101][101], int m, int n) {
         // your code here
         vector<int> color(n,0);
-        return dfs(0,graph,m,n,color);
+        for(int i=0;i<n;i++){
+            if(color[i]==0){
+                if(!dfs(i,graph,m,n,color)) return false;
+            }
+        }
+        return true;
     }
 };
 
