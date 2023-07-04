@@ -6,13 +6,10 @@ using namespace std;
 class Solution{
     public:
     long long findMinDiff(vector<long long> a, long long n, long long m){
-        sort(a.begin(),a.end());
-        long long x=m-1;
         long long diff=LLONG_MAX;
-        while(x<a.size()){
-            long long e=x-m+1;
-            diff=min(diff,a[x]-a[e]);
-            x++;
+        sort(a.begin(),a.end());
+        for(long long i=0;i<=(n-m);i++){
+            diff=min(diff,a[m-1+i]-a[i]);
         }
         return diff;
     }   
