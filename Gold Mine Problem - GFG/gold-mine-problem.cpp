@@ -18,13 +18,25 @@ public:
         c=mat[i][j]+path(i,j-1,mat,dp);
         return dp[i][j]=max(a,max(b,c));
     }
-    int maxGold(int n, int m, vector<vector<int>> M)
+    int maxGold(int n, int m, vector<vector<int>> mat)
     {
         // code here
-        int x=0;
         vector<vector<int>> dp(n,vector<int>(m,-1));
         for(int i=0;i<n;i++){
-            x=max(x,path(i,m-1,M,dp));
+            dp[i][0]=mat[i][0];
+        }
+        for(int j=1;j<m;j++){
+            for(int i=0;i<n;i++){
+                int a=0,b=0,c;
+                if(i>0) a=mat[i][j]+dp[i-1][j-1];
+                if(i<mat.size()-1) b=mat[i][j]+dp[i+1][j-1];
+                c=mat[i][j]+dp[i][j-1];
+                dp[i][j]=max(a,max(b,c));
+            }
+        }
+        int x=0;
+        for(int i=0;i<n;i++){
+            x=max(x,dp[i][m-1]);
         }
         return x;
     }
